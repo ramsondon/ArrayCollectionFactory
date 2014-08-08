@@ -1,10 +1,8 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
- * User: matthias
+ * TypedArrayFactoryInputException.php
+ * copyright by Matthias Schmid <ramsondon@gmail.com>
  * Date: 08/08/14
- * Time: 11:33
- * To change this template use File | Settings | File Templates.
  */
 
 namespace Ramsondon\TypedArray\Exceptions;
