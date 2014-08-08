@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * ${FILENAME}
+ * This File is auto generated
+ * created by ramsondon type hinted ArrayCollections Generator
+ * author: Matthias Schmid<ramsondon@gmail.com>
+ * Date: ${DATE}
+ */
+
+namespace ${NAMESPACE};
+
+use ${USING};
+
+interface I${CLASSNAME} extends \Iterator, \Countable
+{
+    /**
+     * Appends a new $value to the end of the I${CLASSNAME}
+     *
+     * @param ${OBJECTCLASS} $value
+     */
+    public function append(${OBJECTCLASS} $value);
+
+    /**
+     * Returns the value at $index or null on failure
+     *
+     * @param int $index
+     * @return ${OBJECTCLASS}|null on failure
+     */
+    public function getAt($index);
+
+    /**
+     * Removes the element at the $index and returns true on success. false on failure
+     *
+     * @param int $index
+     * @return bool
+     */
+    public function removeAt($index);
+}

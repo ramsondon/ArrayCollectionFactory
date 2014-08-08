@@ -2,3 +2,4 @@
 vendor/
 composer.phar
 phpunit.phar
+src/Ramsondon/TypedArray/Cache

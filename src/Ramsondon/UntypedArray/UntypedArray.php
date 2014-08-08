@@ -37,9 +37,7 @@ class UntypedArray implements IArrayExtension
      */
     public function current()
     {
-//        if (array_key_exists($this->current, $this->container)) {
-            return $this->container[$this->current];
-//        }
+        return $this->container[$this->current];
     }
 
     /**

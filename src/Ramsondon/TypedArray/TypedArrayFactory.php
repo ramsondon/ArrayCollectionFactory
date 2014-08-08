@@ -7,6 +7,7 @@
 
 namespace Ramsondon\TypedArray;
 use Ramsondon\TypedArray\Exceptions\TypedArrayFactoryInputException;
+use Ramsondon\TypedArray\Generate\ClassCacheFactory;
 
 /**
  * Class TypedArrayFactory
@@ -15,9 +16,19 @@ use Ramsondon\TypedArray\Exceptions\TypedArrayFactoryInputException;
 class TypedArrayFactory
 {
     /**
+     * @var string
+     */
+    private $namespace = '\Ramsondon\TypedArray\Cache';
+
+    /**
      * @var null|string
      */
     private $validationMessage;
+
+    /**
+     * @var
+     */
+    private $cacher;
 
     /**
      * @param string $classname
@@ -28,7 +39,20 @@ class TypedArrayFactory
             throw new TypedArrayFactoryInputException($this->validationMessage);
         }
 
-        // TODO: implement
+        return $this->getCacher()->get($classname);
+    }
+
+    /**
+     * @return Generate\ClassCacher
+     */
+    private function getCacher()
+    {
+        if (null === $this->cacher) {
+            $factory = new ClassCacheFactory();
+            $this->cacher = $factory->create($this->namespace);
+        }
+
+        return $this->cacher;
     }
 
     /**
