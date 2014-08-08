@@ -10,6 +10,7 @@
 namespace Ramsondon\TypedArray\Exceptions;
 
 
-class TypedArrayFactoryInputException {
+class TypedArrayFactoryInputException extends \Exception
+{
 
 }
