@@ -1,6 +1,6 @@
 <?php
 /**
- * ArrayCollectionFactoryctory.php
+ * ArrayCollectionFactory.php
  * copyright by Matthias Schmid <ramsondon@gmail.com>
  * Date: 08/08/14
  */
