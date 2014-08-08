@@ -1,0 +1,17 @@
+{
+    "name": "ramsondon/typesavearray",
+    "description": "a type save array generator via type hinting",
+    "keywords": ["php", "array", "ArrayCollection"],
+    "authors": [
+        {
+            "name": "Matthias Schmid",
+            "email": "ramsondon@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-0": { "Ramsondon": "src" }
+    }
+}
+
