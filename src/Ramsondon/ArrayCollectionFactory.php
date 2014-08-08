@@ -23,6 +23,7 @@ class ArrayCollectionFactory extends TypedArrayFactory
      * The return value will be an object of type \Ramsondon\TypedArray\Cache\<CLASSNAME>ArrayCollection
      *
      * @param string $classname
+     * @return mixed
      */
     public function create($classname)
     {
