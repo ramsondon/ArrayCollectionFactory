@@ -115,21 +115,38 @@ class ClassCacher
         $creator = new TemplateCreator($template);
         $result = $creator->create();
 
-        // FIXME: autoload classes
-//        $interfacename = ltrim($this->namspace . '\\I' . $cachedclassname, '\\');
-//        $classname = ltrim($this->namspace . '\\' . $cachedclassname, '\\');
-//        $this->lookup($interfacename);
-//        $this->lookup($classname);
-//
-//        sleep(2);
-//        spl_autoload();
-//        spl_autoload();
-//        spl_autoload($cachedclassname);
-//        spl_autoload($cachedclassname);
-//        spl_autoload($template->getInterfaceFile());
-//        spl_autoload($template->getClassFile());
+        $this->autoload($template, $cachedclassname);
 
         return $result;
+    }
+
+    /**
+     * registers autoloader for new cached files
+     *
+     * @param TemplateObject $template
+     * @param string $cachedclassname
+     */
+    private function autoload(TemplateObject $template, $cachedclassname)
+    {
+
+        $interfacename = ltrim($this->namspace . '\\I' . $cachedclassname, '\\');
+        $classname = ltrim($this->namspace . '\\' . $cachedclassname, '\\');
+
+        spl_autoload_register(function ($class) use ($template, $interfacename, $classname) {
+
+            $filename = null;
+            if ($class == $interfacename) {
+                $filename = $template->getInterfaceFile();
+            } else if ($class == $classname) {
+                $filename = $template->getClassFile();
+            }
+
+            if ( ! empty($filename) && is_readable($filename)) {
+                require_once $filename;
+            }
+
+
+        });
     }
 
     /**
