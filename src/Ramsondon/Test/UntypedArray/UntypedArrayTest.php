@@ -126,7 +126,20 @@ class UntypedArrayTest extends \PHPUnit_Framework_TestCase
                 $this->assertTrue($this->array->removeAt($removeAt));
             }
 
-            $values[] = $value;
+            $values[] = $this->array->getAt($key);
+        }
+
+        foreach ($values as $k => $v) {
+            $found = (($k == $removeAt) ? true : false);
+            if (!$found) {
+                foreach ($this->array as $ak => $av) {
+                    if ($av === $v) {
+                        $found = true;
+                        break;
+                    }
+                }
+            }
+            $this->assertTrue($found);
         }
 
         $this->assertEquals($this->values[0], $this->array->getAt(0));
@@ -143,13 +156,28 @@ class UntypedArrayTest extends \PHPUnit_Framework_TestCase
         $this->applyValues();
         $valIndex = 3;
         $removeAt = 1;
-
+        $values = array();
         foreach ($this->array as $key => $value) {
             if ($key == $valIndex) {
                 $this->assertTrue($this->array->removeAt($removeAt));
                 $this->assertTrue($this->array->removeAt($removeAt));
             }
             $this->assertEquals($this->values[$key],$value);
+
+            $values[] = $this->array->getAt($key);
+        }
+
+        foreach ($values as $k => $v) {
+            $found = (($k == $removeAt || $k == $removeAt+1) ? true : false);
+            if (!$found) {
+                foreach ($this->array as $ak => $av) {
+                    if ($av === $v) {
+                        $found = true;
+                        break;
+                    }
+                }
+            }
+            $this->assertTrue($found);
         }
 
         $this->assertEquals($this->values[0], $this->array->getAt(0));
@@ -159,6 +187,7 @@ class UntypedArrayTest extends \PHPUnit_Framework_TestCase
 
 
         $this->assertEquals(count($this->values)-2, count($this->array));
+
 
 
     }
@@ -175,7 +204,7 @@ class UntypedArrayTest extends \PHPUnit_Framework_TestCase
                 $this->assertTrue($this->array->removeAt($removeAt));
             }
 
-            $values[] = $value;
+            $values[] = $this->array->getAt($key);
         }
 
         $this->assertEquals(count($this->values)-1, count($this->array));
@@ -186,7 +215,7 @@ class UntypedArrayTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->values[4], $this->array->getAt(3));
         $this->assertEquals($this->values[5], $this->array->getAt(4));
 
-        foreach ($this->values as $k => $v) {
+        foreach ($values as $k => $v) {
             $found = (($k == $removeAt) ? true : false);
             if (!$found) {
                 foreach ($this->array as $ak => $av) {
