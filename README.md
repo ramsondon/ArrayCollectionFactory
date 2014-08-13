@@ -1,7 +1,7 @@
-typesavearray
+ArrayCollectionFactory
 =============
 
-typesavearray is a dynamic ArrayCollection generator for type save access via type hints.
+ArrayCollectionFactory is a dynamic ArrayCollection generator for type save access via type hints in PHP.
 
 the ArrayCollection implements \Countable, \Iterator and the dynamically created cached ArrayCollection contains
 the methods:
@@ -23,7 +23,7 @@ How to use:
 
     $factroy = new ArrayCollectionFactory();
 
-    /* @var $collection \Ramsondon\TypedArray\ITestObjectArrayCollection */
+    /* @var $collection \Ramsondon\TypedArray\Cache\ITestObjectArrayCollection */
     $collection = $factory->create('Class\\Of\\TestObject');
 
     $object = new Class\Of\TestObject();
