@@ -1,5 +1,5 @@
 {
-    "name": "ramsondon/typesavearray",
+    "name": "ramsondon/arraycollectionfactory",
     "description": "a type save array generator via type hinting",
     "keywords": ["php", "array", "ArrayCollection"],
     "authors": [
