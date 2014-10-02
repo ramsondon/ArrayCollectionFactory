@@ -1,7 +1,7 @@
 ArrayCollectionFactory
 =============
 
-ArrayCollectionFactory is a dynamic ArrayCollection generator for type save access via type hints in PHP.
+ArrayCollectionFactory is a dynamic ArrayCollection generator for type save access via type hints in PHP5.
 
 the ArrayCollection implements \Countable, \Iterator and the dynamically created cached ArrayCollection contains
 the methods:
